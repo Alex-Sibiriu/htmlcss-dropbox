@@ -15,6 +15,7 @@
 /* GENERAL */
 body {
   font-family: "Open Sans", sans-serif;
+  /* background-color: grey; */
 }
 
 h2 {
@@ -24,7 +25,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.7rem;
+  font-size: 1.65rem;
   letter-spacing: -1px;
   margin-bottom: 20px;
 }
@@ -99,7 +100,7 @@ header a {
   display: inline-block;
   padding: 0 20px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   color: black;
 }
 
@@ -144,7 +145,7 @@ header .logo {
 }
 
 #jumbotron .text-container p {
-  font-weight: bold;
+  font-weight: 500;
   letter-spacing: -1px;
 }
 
@@ -178,13 +179,13 @@ header .logo {
   justify-content: space-between;
 }
 
-.col {
+#business-plan .col {
   width: 100%;
   border: 1px solid black;
   font-size: .85rem;
 }
 
-.col:not(:first-child) {
+#business-plan .col:not(:first-child) {
   margin-left: 50px;
 }
 
@@ -206,7 +207,7 @@ header .logo {
 
 #business-plan .col .characteristics {
   align-items: flex-start;
-  font-weight: bold;
+  font-weight: 500;
   margin-top: 45px;
 }
 
@@ -241,7 +242,7 @@ header .logo {
 #business-plan .large-col .text-box {
   width: 70%;
   padding: 30px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 #business-plan .large-col .btn-box {
@@ -251,13 +252,30 @@ header .logo {
 
 /* CONTACT US */
 #contact-us .img-container {
-  width: 610px;
+  width: 60%;
   height: 510px;
 }
 
+#contact-us .text-container {
+  width: 40%;
+  padding: 50px 48px 50px;
+  font-weight: 500;
+}
+
 /* OPERATION */
-.row {
+#operation .row {
   margin-bottom: 50px;
+}
+
+#operation .row .col {
+  width: calc(100%/3);
+  padding-right: 35px;
+}
+
+#operation p {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -1px;
 }
 
 /* SPONSOR */
