@@ -1,0 +1,119 @@
+/* VARIABLES */
+:root {
+  --light-blue: #B4D0E7;
+  --btn-color: #0061FF;
+  --visited-color: #632D95;
+}
+
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* UTILITY */
+.debug {
+  background-color: rgba(255, 0, 0, 0.3);
+  border: 2px solid red;
+  height: 200px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.big-container {
+  width: 98%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.small-container {
+  width: 90%;
+  max-width: 1000px;
+  height: fit-content;
+  min-height: 200px;  /*DEBUG*/
+  margin: 0 auto;
+}
+
+.mb-xl {
+  margin-bottom: 150px;
+}
+
+/* HEADER  HEADER  HEADER  HEADER  HEADER */
+header {
+  height: 80px;
+  justify-content: space-between;
+}
+
+/* MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN */
+/* JUMBOTRON */
+#jumbotron {
+  height: 740px;
+  background-color: var(--light-blue);
+}
+
+/* BUSINESS PLAN */
+#business-plan .small-container {
+  justify-content: space-between;
+}
+.col {
+  width: 100%;
+}
+
+.col:not(:first-child) {
+  margin-left: 50px;
+}
+
+/* CONTACT US */
+#contact-us .img-container {
+  width: 610px;
+  height: 510px;
+}
+
+/* OPERATION */
+.row {
+  margin-bottom: 50px;
+}
+
+/* SPONSOR */
+#sponsor {
+  height: 620px;
+}
+
+#sponsor .sponsor-box {
+  width: calc(100% / 3);
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+#sponsor .sponsor-img {
+  width: calc(100% / 2);
+}
+
+/* FREE TRIAL */
+#free-trial {
+  background-color: var(--light-blue);
+}
+
+/* FOOTER  FOOTER  FOOTER  FOOTER  FOOTER  FOOTER */
+footer {
+  background-color: black;
+  padding-top: 100px;
+}
+
+footer .info-section .info-box{
+  width: 20%;
+}
+
