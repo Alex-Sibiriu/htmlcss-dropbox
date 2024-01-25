@@ -2,7 +2,7 @@
 :root {
   --light-blue: #B4D0E7;
   --btn-color: #0061FF;
-  --visited-color: #632D95;
+  --header-height: 80px;
 }
 
 /* CSS RESET */
@@ -15,7 +15,6 @@
 /* GENERAL */
 body {
   font-family: "Open Sans", sans-serif;
-  /* background-color: grey; */
 }
 
 h2 {
@@ -60,20 +59,31 @@ li {
   margin: 0 auto;
 }
 
-.btn {
-  background-color: var(--btn-color);
+a.btn {
+  display: block;
   padding: 10px 16px;
   margin: 30px 0;
   text-align: center;
-}
-
-.btn a{
-  color: white;
   text-decoration: none;
+  font-weight: 600;
 }
 
-.btn:hover {
+.btn-blue {
+  background-color: var(--btn-color);
+  color: white;
+}
+
+.btn-blue:hover {
   background-color: #5495ff;
+}
+
+.btn-white {
+  background-color: white;
+  color: black;
+}
+
+.btn-white:hover {
+  background-color: whitesmoke;
 }
 
 .mb-xl {
@@ -82,18 +92,23 @@ li {
 
 /* HEADER  HEADER  HEADER  HEADER  HEADER */
 header {
-  height: 80px;
+  height: var(--header-height);
+  width: 100%;
+  background-color: white;
   padding-right: 20px;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 999;
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.302);
 }
 
 header nav,
 header ul,
 header li,
 header a {
-  height: 80px;
-  line-height: 80px;
+  height: var(--header-height);
+  line-height: var(--header-height);
 }
 
 header a {
@@ -124,7 +139,7 @@ header .logo {
 /* JUMBOTRON */
 #jumbotron {
   background-color: var(--light-blue);
-  padding-top: 80px;
+  padding-top: calc(80px + var(--header-height));
 }
 
 #jumbotron h1 {
@@ -141,11 +156,12 @@ header .logo {
 #jumbotron .text-container {
   width: 30.32%;
   line-height: 1.46rem;
-  font-size: 1.03rem;
+  font-weight: 800;
 }
 
 #jumbotron .text-container p {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.08rem;
   letter-spacing: -1px;
 }
 
@@ -166,14 +182,45 @@ header .logo {
 }
 
 /* BUSINESS PLAN */
+#business-plan .input-radio {
+  margin-bottom: 50px;
+}
+
 #business-plan input {
   cursor: pointer;
-  margin-bottom: 50px;
+  margin-right: 5px;
 }
 
 #business-plan label {
   margin-right: 30px;
 }
+/* Effetto selezione radio */
+.circle-monthly,
+.circle-annual {
+  display: none;
+  width: 18px;
+  aspect-ratio: 1;
+  border: 5px solid #0061FF;
+  border-radius: 50%;
+  vertical-align: bottom;
+}
+
+#monthly:checked {
+  display: none;
+}
+
+#monthly:checked ~ .circle-monthly {
+  display: inline-block;
+}
+
+#annual:checked {
+  display: none;
+}
+
+#annual:checked ~ .circle-annual {
+  display: inline-block;
+}
+/* /Effetto selezione radio */
 
 #business-plan .small-container {
   justify-content: space-between;
@@ -185,7 +232,7 @@ header .logo {
   font-size: .85rem;
 }
 
-#business-plan .col:not(:first-child) {
+#business-plan .small-container .col:not(:first-child) {
   margin-left: 50px;
 }
 
@@ -207,7 +254,7 @@ header .logo {
 
 #business-plan .col .characteristics {
   align-items: flex-start;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 45px;
 }
 
@@ -259,7 +306,12 @@ header .logo {
 #contact-us .text-container {
   width: 40%;
   padding: 50px 48px 50px;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+#contact-us .text-container .btn {
+  display: inline-block;
+  border: 2px solid black;
 }
 
 /* OPERATION */
@@ -278,33 +330,191 @@ header .logo {
   letter-spacing: -1px;
 }
 
-/* SPONSOR */
-#sponsor {
-  height: 620px;
+/* CUSTOMERS INFO */
+#customers-info .small-container {
+  padding-right: 400px;
 }
 
+/* SPONSOR */
 #sponsor .sponsor-box {
   width: calc(100% / 3);
-  height: 100%;
   flex-wrap: wrap;
+  aspect-ratio: 1;
 }
 
 #sponsor .sponsor-img {
-  width: calc(100% / 2);
+  width: 50%;
+  aspect-ratio: 1;
+  color: rgb(255, 255, 255);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#sponsor .sponsor-img.active {
+  border: 15px solid rgba(255, 255, 255, 0.55);
+}
+
+#sponsor .sponsor-img img {
+  width: 45%;
+  filter: invert(1);
+}
+
+#sponsor #designit {
+  background-color: #A2D39B;
+}
+
+#sponsor #arizona {
+  background-color: #61082B;
+}
+
+#sponsor #florida {
+  background-color: #0093CE;
+}
+
+#sponsor #topps {
+  background-color: #FF1C1C;
+}
+
+#sponsor #bicycle {
+  background-color: #D5001F;
+}
+
+#sponsor #hearst {
+  background-color: #B4D0E7;
+}
+
+#sponsor #lonely {
+  background-color: #0D2481;
+}
+
+#sponsor #clear {
+  background-color: #FFD830;
+}
+
+#sponsor .active-details {
+  padding: 45px;
+  background-color: #F5F5F5;
+  overflow: auto;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+#sponsor .active-details img {
+  width: 42%;
+}
+
+#sponsor .active-details hr {
+  width: calc(100%/6);
+  margin: 45px 0;
+}
+
+#sponsor .autor {
+  padding-top: 50px;
 }
 
 /* FREE TRIAL */
 #free-trial {
   background-color: var(--light-blue);
+  padding: 130px 0  ;
+}
+
+#free-trial .small-container {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#free-trial .text-container {
+  width: 50%;
+}
+
+#free-trial h2 {
+  color: #61082B;
+  margin: 0;
+}
+
+#free-trial .small-container .btn {
+  margin-top: 10px;
+}
+
+/* FAQ */
+#faq .question {
+  position: relative;
+  padding: 40px 0;
+  border-top: 1px solid black;
+  cursor: pointer;
+  transition: display 1s;
+}
+
+#faq .question:last-child {
+  border-bottom: 1px solid black;
+  margin-bottom: 150px;
+}
+
+#faq .question i {
+  position: absolute;
+  right: 10%;
+  top: 40px;
+}
+
+/* FAQ BONUS */
+#faq p {
+  padding-top: 40px;
+  display: none;
+}
+
+#faq .question:hover p,
+#faq .question:hover i.fa-angle-up {
+  display: block;
+}
+
+#faq .question:last-child:hover {
+  margin-bottom: 65px;
+}
+
+#faq .question:hover ~ .question:last-child {
+  margin-bottom: 65px;
+}
+
+#faq .question:hover i.fa-angle-down {
+  display: none;
+}
+
+#faq .question i.fa-angle-up {
+  display: none;
 }
 
 /* FOOTER  FOOTER  FOOTER  FOOTER  FOOTER  FOOTER */
 footer {
   background-color: black;
-  padding-top: 100px;
+  padding: 100px 0 50px;
+  color: white;
 }
 
 footer .info-section .info-box{
   width: 20%;
 }
 
+footer .info-section li:last-child {
+  padding-bottom: 100px;
+}
+
+footer .info-box a {
+  color: white;
+  text-decoration: none;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+footer .language {
+  display: inline-block;
+  padding: 50px 40px 0 0;
+  border-top: 2px solid #999999;
+  font-size: .9rem;
+  color: #999999;
+}
+
+footer .language-selector:hover {
+  color: white;
+  cursor: pointer;
+}
