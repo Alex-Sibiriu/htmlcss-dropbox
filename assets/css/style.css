@@ -15,11 +15,18 @@
 /* GENERAL */
 body {
   font-family: "Open Sans", sans-serif;
+
+  width: 1856px;  /*DEBUG*/
+  margin: 0 auto;  /*DEBUG*/
 }
 
 img {
   width: 100%;
   object-fit: cover;
+}
+
+li {
+  list-style: none;
 }
 
 /* UTILITY */
@@ -47,6 +54,18 @@ img {
   margin: 0 auto;
 }
 
+.btn {
+  background-color: var(--btn-color);
+  color: white;
+  display: inline;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background-color: #5495ff;
+}
+
 .mb-xl {
   margin-bottom: 150px;
 }
@@ -54,7 +73,33 @@ img {
 /* HEADER  HEADER  HEADER  HEADER  HEADER */
 header {
   height: 80px;
+  padding-right: 20px;
   justify-content: space-between;
+  align-items: center;
+}
+
+header nav,
+header ul,
+header li,
+header a {
+  height: 80px;
+  line-height: 80px;
+}
+
+header a {
+  display: inline-block;
+  padding: 0 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+header a:not(.btn,.logo-link):hover {
+  border-bottom: 2px solid black;
+}
+
+header .logo {
+  vertical-align: middle;
 }
 
 /* MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN */
