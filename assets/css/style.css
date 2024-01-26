@@ -3,6 +3,8 @@
   --light-blue: #B4D0E7;
   --btn-color: #0061FF;
   --header-height: 80px;
+  --header-hover: #F2EEE8;
+  --dropdown-hover: #E7E0D7;
 }
 
 /* CSS RESET */
@@ -39,10 +41,6 @@ li {
 }
 
 /* UTILITY */
-.debug {
-  border: 2px solid red;
-}
-
 .d-flex {
   display: flex;
 }
@@ -129,7 +127,11 @@ header .btn {
 
 header a:not(.btn,.logo-link):hover,
 header .dropdown-container:hover {
-  background-color: whitesmoke;
+  background-color: var(--header-hover);
+}
+
+header a.normal-hover:hover {
+  border-bottom: 2px solid black;
 }
 
 header .logo {
@@ -142,24 +144,19 @@ header .dropdown-container {
 }
 
 header .dropdown-container:hover {
-  background-color: whitesmoke;
+  background-color: var(--header-hover);
 }
 
 .dropdown-nav {
   position: absolute;
   bottom: -100%;
   left: 0;
-  width: 500px;
   display: none;
-}
-
-header #functions.dropdown-nav {
-  width: 280px;
 }
 
 .dropdown-nav li,
 .dropdown-nav a {
-  background-color: whitesmoke;
+  background-color: var(--header-hover);
   line-height: normal;
   height: auto;
   width: 100%;
@@ -170,14 +167,11 @@ header #functions.dropdown-nav {
 }
 
 .dropdown-nav li:not(:first-child):hover a {
-  background-color: rgb(223, 223, 223);
+  background-color: var(--dropdown-hover);
 }
 
+header a:hover ~ .dropdown-nav, 
 .dropdown-nav:hover {
-  display: inline;
-}
-
-header a:hover ~ .dropdown-nav {
   display: inline-block;
 }
 
@@ -188,7 +182,7 @@ header a:hover ~ .dropdown-nav {
 }
 
 .dropdown-nav h5 {
-  padding: 5px 12px 0;
+  padding: 20px 12px 5px;
 }
 
 .dropdown-nav h6 {
@@ -198,6 +192,29 @@ header a:hover ~ .dropdown-nav {
 .dropdown-nav p {
   font-size: .7rem;
   margin-bottom: 10px;
+}
+
+header #solutions.dropdown-nav {
+  width: 700px;
+  height: max-content;
+}
+
+header #solutions.dropdown-nav .col {
+  width: calc(100% / 3);
+  height: auto;
+  padding-bottom: 10px;
+}
+
+header #solutions.dropdown-nav a {
+  font-size: .8rem;
+}
+
+header #solutions.dropdown-nav .wrapper {
+  background-color: var(--header-hover);
+}
+
+header #functions.dropdown-nav {
+  width: 280px;
 }
 
 /* MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN */
