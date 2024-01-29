@@ -64,6 +64,7 @@ a.btn {
   text-align: center;
   text-decoration: none;
   font-weight: 600;
+  transition: all .5s;
 }
 
 .btn-blue {
@@ -115,6 +116,7 @@ header a {
   text-decoration: none;
   font-weight: 500;
   color: black;
+  transition: all .5s;
 }
 
 header .btn {
@@ -141,6 +143,7 @@ header .logo {
 /* SUPERBONUS */
 header .dropdown-container {
   position: relative;
+  transition: all .5s;
 }
 
 header .dropdown-container:hover {
@@ -520,17 +523,19 @@ header #functions.dropdown-nav {
 }
 
 /* FAQ */
+#faq {
+  height: 570px;
+}
+
 #faq .question {
   position: relative;
   padding: 40px 0;
   border-top: 1px solid black;
   cursor: pointer;
-  transition: display 1s;
 }
 
 #faq .question:last-child {
   border-bottom: 1px solid black;
-  margin-bottom: 150px;
 }
 
 #faq .question i {
@@ -540,31 +545,67 @@ header #functions.dropdown-nav {
 }
 
 /* FAQ BONUS */
+@keyframes scrolling {
+  0% {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+  }
+  50% {
+    opacity: 0;
+    height: 124px;
+    padding: 40px 0;
+  }
+  100% {
+    opacity: 1;
+    height: auto;
+    padding: 40px 0;
+  }
+}
+
+@keyframes adapt-padding {
+  0% {
+    padding-bottom: 40px;
+  }
+  50% {
+    padding-bottom: 0;
+  }
+  100% {
+    padding-bottom: 0;
+  }
+}
+
 #faq p {
-  padding-top: 40px;
-  display: none;
+  opacity: 0;
+  height: 0;
 }
 
-#faq .question:hover p,
-#faq .question:hover i.fa-angle-up {
-  display: block;
+#faq .question:hover {
+  animation: adapt-padding .75s linear;
+  padding-bottom: 0;
 }
 
-#faq .question:last-child:hover {
-  margin-bottom: 65px;
-}
-
-#faq .question:hover ~ .question:last-child {
-  margin-bottom: 65px;
+#faq .question:hover p { 
+  animation: scrolling .75s linear;
+  opacity: 1;
+  height: auto;
+  padding: 40px 0;
 }
 
 #faq .question:hover i.fa-angle-down {
-  display: none;
+  opacity: 0;
+  transition: .5s;
 }
 
 #faq .question i.fa-angle-up {
-  display: none;
+  opacity: 0;
 }
+
+#faq .question:hover i.fa-angle-up {
+  opacity: 1;
+  transition: 1s;
+}
+
 
 /* FOOTER  FOOTER  FOOTER  FOOTER  FOOTER  FOOTER */
 footer {
