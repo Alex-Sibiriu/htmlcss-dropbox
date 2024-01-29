@@ -150,11 +150,18 @@ header .dropdown-container:hover {
   background-color: var(--header-hover);
 }
 
-.dropdown-nav {
+#solutions.dropdown-nav {
+  display: inline-block;
   position: absolute;
-  bottom: -100%;
+  bottom: 360%;
   left: 0;
-  display: none;
+}
+
+#functions.dropdown-nav {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 850%;
 }
 
 .dropdown-nav li,
@@ -166,22 +173,11 @@ header .dropdown-container:hover {
 }
 
 .dropdown-nav a {
-  padding: 10px 12px;
+  padding: 10px 12px;     
 }
 
 .dropdown-nav li:not(:first-child):hover a {
   background-color: var(--dropdown-hover);
-}
-
-header a:hover ~ .dropdown-nav, 
-.dropdown-nav:hover {
-  display: inline-block;
-}
-
-.dropdown-nav i {
-  color: #0061FF;
-  font-size: 1.3rem;
-  margin: 5px 10px 5px 5px;
 }
 
 .dropdown-nav h5 {
@@ -218,6 +214,103 @@ header #solutions.dropdown-nav .wrapper {
 
 header #functions.dropdown-nav {
   width: 280px;
+}
+
+/* SMOOTH ANIMATION */
+@keyframes showdown-functions {
+  0% {
+    bottom: 850%;
+    width: 100%;
+    opacity: 0;
+  }
+  50% {
+    bottom: -100%;
+    width: 100%;
+  }
+  75% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@keyframes showdown-solutions {
+  0% {
+    bottom: 360%;
+    width: 100%;
+    opacity: 0;
+  }
+  50% {
+    bottom: -100%;
+    width: 100%;
+  }
+  75% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@keyframes show-text {
+  0% {
+    color: transparent;
+    font-size: 20%;
+    padding: 0;
+    margin: 0;
+  }
+  50% {
+    color: transparent;
+  }
+  90% {
+    color: rgba(0, 0, 0, 0.302);
+  }
+  100% {
+    color: black;
+  }
+}
+
+@keyframes icon-grow {
+  0% {
+    font-size: 1%;
+    margin: 0;
+  }
+  100% {
+    font-size: 1.3rem;
+    margin: 5px 10px 5px 5px;
+  }
+}
+
+header a:hover ~ .dropdown-nav a, 
+header a:hover ~ .dropdown-nav li,
+header a:hover ~ .dropdown-nav p,
+.dropdown-nav:hover a,
+.dropdown-nav:hover p,
+.dropdown-nav:hover li {
+  animation: show-text .5s linear;
+  animation-fill-mode: both;
+}
+
+header a:hover ~ .dropdown-nav i,
+.dropdown-nav:hover i {
+  animation: icon-grow .5s linear;
+  animation-fill-mode: both;
+  color: #0061FF;
+}
+
+header a:hover ~ #solutions.dropdown-nav, 
+#solutions.dropdown-nav:hover {
+  animation: showdown-solutions .5s linear;
+  animation-fill-mode: both;
+  z-index: -1;
+}
+
+header a:hover ~ #functions.dropdown-nav, 
+#functions.dropdown-nav:hover {
+  animation: showdown-functions .5s linear;
+  animation-fill-mode: both;
+  z-index: -1;
 }
 
 /* MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN */
@@ -587,9 +680,7 @@ header #functions.dropdown-nav {
 
 #faq .question:hover p { 
   animation: scrolling .75s linear;
-  opacity: 1;
-  height: auto;
-  padding: 40px 0;
+  animation-fill-mode: both;
 }
 
 #faq .question:hover i.fa-angle-down {
@@ -640,4 +731,5 @@ footer .language {
 footer .language-selector:hover {
   color: white;
   cursor: pointer;
+  transition: all .5s;
 }
